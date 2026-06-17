@@ -11,6 +11,7 @@ var app = builder.Build();
 app.MapGet("/coins", (AppDbContext db) =>
 {
     var coins = db.Coins.ToList();
+    
     return Results.Ok(coins);
 });
 
