@@ -5,13 +5,13 @@ namespace CryptoMarketApi.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
-        DbSet<Coin> Coins { get; set; }
+        public DbSet<Coin> Coins { get; set; }
 
-        DbSet<Price> Prices { get; set; }
+        public DbSet<Price> Prices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
