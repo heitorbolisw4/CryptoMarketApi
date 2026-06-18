@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CryptoMarketApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c35d9d8cc5067b481d03a61bd6250acec163c730")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c150b8831c55c00213a557ec5fb66891f96f7e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CryptoMarketApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CryptoMarketApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

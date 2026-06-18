@@ -31,8 +31,24 @@ namespace CryptoMarketApi.Service
             // monto a url
             var url = $"{_url}?vs_currencies=brl&ids={ids}&x_cg_demo_api_key={_apikey}";
             // ???
-            var resultado = await _httpClient.GetFromJsonAsync<Dictionary<string, PriceDto>>(url);
+            var result = await _httpClient.GetFromJsonAsync<Dictionary<string, PriceDto>>(url);
 
+            if(result == null) return;
+            foreach(var coin in coins)
+            {
+                if(!result.TryGetValue(coin.CoinGeckoId, out var price)) continue;
+                int i = 1;
+                _db.Prices.Add(new Price
+                {
+                    Id = i++,
+                    CoinId = coin.Id,
+                    Value = price.Brl,
+                    RecordedAt = DateTime.Now
+
+                });
+
+                await _db.SaveChangesAsync();
+            }
 
 
         }
