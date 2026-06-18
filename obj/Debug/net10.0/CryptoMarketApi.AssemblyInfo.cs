@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("9ce2aec7-b0a9-479e-8653-ffdcd46ce80f")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CryptoMarketApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7a3d1047a0108692c938ce54c5976f7d5c41299")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c35d9d8cc5067b481d03a61bd6250acec163c730")]
 [assembly: System.Reflection.AssemblyProductAttribute("CryptoMarketApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CryptoMarketApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
