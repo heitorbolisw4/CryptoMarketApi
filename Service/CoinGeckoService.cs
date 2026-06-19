@@ -1,11 +1,12 @@
 using CryptoMarketApi.Data;
 using CryptoMarketApi.DTO;
 using CryptoMarketApi.Entities;
+using CryptoMarketApi.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace CryptoMarketApi.Service
 {
-    public class CoinGeckoService
+    public class CoinGeckoService : ICoinGeckoService
     {
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _config;
@@ -37,10 +38,10 @@ namespace CryptoMarketApi.Service
             foreach(var coin in coins)
             {
                 if(!result.TryGetValue(coin.CoinGeckoId, out var price)) continue;
-                int i = 1;
+                
                 _db.Prices.Add(new Price
                 {
-                    Id = i++,
+                    Id = Guid.NewGuid(),
                     CoinId = coin.Id,
                     Value = price.Brl,
                     RecordedAt = DateTime.Now
