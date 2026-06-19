@@ -56,3 +56,27 @@ CryptoMarketApi/
 ## Goal
 
 The goal of this repository is to evolve into a crypto market API while improving backend development skills.
+
+
+
+## Query in Database
+
+To viwew all values recorded over time
+
+SELEC c.CoinName, c.CoinSymbol, p.Value, p.RecordedAt
+FROM Coins c
+INNER JOIN Prices p ON p.CoinId = c.Id
+ORDER BY p.RecordedAt DESC;
+
+
+To view only the current valuew
+
+SELECT c.CoinName, c.CoinSymbol, p.Value, p.RecordedAt
+FROM Coins c
+INNER JOIN Prices p ON p.CoinId = c.Id
+WHERE p.RecordedAt = (
+    SELECT MAX(p2.RecordedAt) 
+    FROM Prices p2 
+    WHERE p2.CoinId = c.Id
+)
+ORDER BY c.Id;

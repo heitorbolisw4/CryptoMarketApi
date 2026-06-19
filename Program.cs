@@ -31,6 +31,17 @@ app.MapGet("/prices", async (AppDbContext db, ICoinGeckoService service) =>
 });
 app.MapGet("/coins", async (AppDbContext db, ICoinGeckoService service) =>
 {
-    
+    await service.UpdatePricesAsync();
+    var coins = await db.Coins.Select(c => new CoinResponseDto
+    {
+        CoinName = c.CoinName,
+        CoinSymbol = c.CoinSymbol,
+        Value = c.Prices!
+        .OrderByDescending(p => p.RecordedAt)
+        .Select(p => p.Value)
+        .FirstOrDefault()
+    }).ToListAsync();
+
+    return Results.Ok(coins);
 });
 app.Run();
